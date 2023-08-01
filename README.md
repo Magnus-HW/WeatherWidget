@@ -5,21 +5,11 @@ Simple WetherWidget. Add cities, delete, reorder.
 ## Easy Setup
 
 Just add 
-- d 
-- dd
+
+<weather-widget/>
+<script type="module" src="https://cdn.jsdelivr.net/gh/Magnus-HW/WeathereWidget@main/dist/assets/index-7a7c2029.js"></script>
+
 to your html file
-
-## Type Support for `.vue` Imports in TS
-
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
