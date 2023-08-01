@@ -2,6 +2,8 @@
 
 Simple WetherWidget. Add cities, delete, reorder.
 
+https://github.com/Magnus-HW/WeatherWidget/assets/31007191/3ce04ff1-fcbf-4309-8c1d-8edb6b541484
+
 ## Easy Setup
 
 Just add 
