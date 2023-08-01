@@ -6,9 +6,10 @@ Simple WetherWidget. Add cities, delete, reorder.
 
 Just add 
 
+```sh
 <weather-widget/>
 <script type="module" src="https://cdn.jsdelivr.net/gh/Magnus-HW/WeathereWidget@main/dist/assets/index-7a7c2029.js"></script>
-
+```
 to your html file
 
 ## Project Setup
