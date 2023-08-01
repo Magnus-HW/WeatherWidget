@@ -12,10 +12,6 @@ import { useWeatherStore } from "@/stores/weatherCities";
 
 import type { CityWeather } from "@/domains/weather-widget/types"
 
-const emit = defineEmits<{
-  (e: 'weather-list-empty'): void
-}>()
-
 const weatherStore = useWeatherStore()
 
 const citiesWeatherList = computed({
@@ -27,15 +23,10 @@ const citiesWeatherList = computed({
   }
 });
 
-watch(citiesWeatherList, (newVal) => {
-  if (newVal.length == 0) {
-    emit('weather-list-empty')
-  }
-})
-
 const handleDelete = (cityWeather: CityWeather) => {
-  actionsController.deleteCity({ ...cityWeather });
+  actionsController.deleteCityWeather({ ...cityWeather });
 }
+
 const cardHeadStyle: CSSProperties = { 'padding': '10px', 'min-height': '0px', 'font-weight': '600' }
 </script>
 
@@ -50,6 +41,7 @@ const cardHeadStyle: CSSProperties = { 'padding': '10px', 'min-height': '0px', '
     <draggable 
       v-model="citiesWeatherList" 
       handle=".handle"
+      item-key="id"
     >
       <template #item="{ element }">
         <li class="city-bar" :key="element.id">

@@ -4,14 +4,14 @@ import { actionsController } from '@/domains/weather-widget/actionsController';
 import { ref } from "vue";
 import EnterIcon from "@/assets/icons/EnterIcon.vue";
 
-
 const searchVal = ref<string>("");
 const handleEnterSity = (val: string) => {
   const serachArr = val.split(',')
   const cityObj = {name: serachArr[0], country: serachArr[1] }
-  actionsController.addCity(cityObj);
+  actionsController.addCityWeather(cityObj);
   searchVal.value = ""
 }
+
 </script>
 
 <template>

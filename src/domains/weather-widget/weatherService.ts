@@ -16,8 +16,8 @@ export const weatherService = {
     }
   },
 
-  deleteCity(cityToDelete: CityWeather): void {
-    localStorageService.deleteCity(cityToDelete);
+  deleteCityWeather(cityToDelete: CityWeather): void {
+    localStorageService.deleteCityWeather(cityToDelete);
     useWeatherStore().deleteCityWeather(cityToDelete);
   },
 

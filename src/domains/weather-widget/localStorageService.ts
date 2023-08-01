@@ -32,7 +32,7 @@ export const localStorageService = {
     }
     return { alreadyInStorage: true }
   },
-  deleteCity(cityToDelete: CityWeather): void {
+  deleteCityWeather(cityToDelete: CityWeather): void {
     const cityWeatherList = this.getCitiesList()
     
     const updatedCities = cityWeatherList.filter(

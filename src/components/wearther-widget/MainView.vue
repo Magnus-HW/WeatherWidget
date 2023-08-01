@@ -2,7 +2,7 @@
 import { useWeatherStore } from '@/stores/weatherCities';
 import { actionsController } from "@/domains/weather-widget/actionsController";
 import { Button } from 'ant-design-vue';
-import { onMounted, ref, computed } from 'vue';
+import { onMounted, ref, computed, watch } from 'vue';
 import CloseIcon from "@/assets/icons/CloseIcon.vue";
 import CityWeather from './subcomponents/CityWeather.vue';
 import TheSettings from './subcomponents/TheSettings.vue';
@@ -21,6 +21,12 @@ const weatherStore = useWeatherStore()
 const citiesWeatherList = computed(() => weatherStore.weatherStoreData);
 const isEmptyCitiesWeatherList = computed(() => citiesWeatherList.value.length == 0)
 
+watch(isEmptyCitiesWeatherList, (isEmpty: boolean) => {
+  //or this could be done by emitting/handling events
+  if(isEmpty) {
+    showSettings.value = false;
+  }
+})
 const handleSettingClick = (): void =>
 {
   showSettings.value = !showSettings.value;
@@ -45,12 +51,15 @@ const showSettings = ref(false)
     </Button>
     <div v-if="showSettings == false">
       <div v-if="!isEmptyCitiesWeatherList">
-        <CityWeather v-for="cityWeather in citiesWeatherList" :cityWeather="cityWeather" v-bind:key="cityWeather.id" />
+        <CityWeather v-for="cityWeather in citiesWeatherList" 
+          :cityWeather="cityWeather" 
+          v-bind:key="cityWeather.id" 
+        />
       </div>
       <TheInitial v-else />
     </div>
     <div v-else>
-      <TheSettings :citiesWeather="weatherStore.weatherStoreData" @weatherListEmpty="showSettings = false" />
+      <TheSettings />
     </div>
   </div>
   <MainLoadingStub v-else/>
